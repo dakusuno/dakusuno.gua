@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">dakusuno gua</string>
+    <string name="search">Search Username</string>
+    <string name="followers">followers</string>
+    <string name="following">following</string>
+    <string name="company">company</string>
+    <string name="location">Lokasi</string>
+    <string name="repositories">Repository</string>
+</resources>
