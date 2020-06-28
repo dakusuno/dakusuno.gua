@@ -9,6 +9,6 @@ val repositoryModule = module {
         ItemRepository(get())
     }
     single {
-        UserRepository(get())
+        UserRepository(get(),get())
     }
 }

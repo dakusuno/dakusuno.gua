@@ -8,18 +8,35 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.dakusuno.dakusunogua.view.ui.main.MainFragment"
-        android:label="MainFragment"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_main"
         >
         <action
             android:id="@+id/action_mainFragment_to_userFragment"
-            app:destination="@id/userFragment" />
+            app:destination="@id/userFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_close_enter"
+            app:popExitAnim="@anim/fragment_close_exit">
+            <argument
+                android:name="item"
+                app:argType="com.dakusuno.dakusunogua.model.Item" />
+        </action>
+
     </fragment>
     <fragment
         android:id="@+id/userFragment"
         android:name="com.dakusuno.dakusunogua.view.ui.user.UserFragment"
-        android:label="UserFragment"
         tools:layout="@layout/fragment_main"
-        />
+        >
+        <action
+            android:id="@+id/action_userFragment_self"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_close_enter"
+            app:popExitAnim="@anim/fragment_close_exit"
+            app:destination="@id/userFragment"
+            />
+    </fragment>
 
 </navigation>

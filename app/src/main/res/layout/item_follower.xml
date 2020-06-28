@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
-            name="item"
+            name="follower"
             type="com.dakusuno.dakusunogua.model.Item" />
     </data>
     <com.google.android.material.card.MaterialCardView
@@ -21,7 +21,7 @@
             android:orientation="vertical"
             >
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/item_avatar_container"
+                android:id="@+id/follower_avatar_container"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:cardElevation="2dp"
@@ -30,23 +30,23 @@
                 android:layout_height="50dp"
                 >
                 <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/item_avatar"
+                    android:id="@+id/follower_avatar"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    app:loadImage="@{item.avatar_url}"
+                    app:loadImage="@{follower.avatar_url}"
                     tools:src="@drawable/dummyimage"
                     />
             </com.google.android.material.card.MaterialCardView>
             <androidx.appcompat.widget.AppCompatTextView
-                android:text="@{item.login}"
-                android:id="@+id/item_username"
+                android:text="@{follower.login}"
+                android:id="@+id/follower_username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="15dp"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                 android:singleLine="true"
                 android:ellipsize="end"
-                app:layout_constraintStart_toEndOf="@id/item_avatar_container"
+                app:layout_constraintStart_toEndOf="@id/follower_avatar_container"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 tools:text="blackberriesasdas" />

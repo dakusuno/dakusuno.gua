@@ -23,12 +23,13 @@ class MainFragment : DatabindingFragment(){
             lifecycleOwner = this@MainFragment
             viewModel = getViewModel<MainViewModel>().apply {
                 username.observe(viewLifecycleOwner, Observer {
-                    viewModel = getViewModel<MainViewModel>().apply { fetchSearch(it) }
+                    viewModel = getViewModel<MainViewModel>().apply { fetchSearch(it)}
                 })
             }
             adapter = ItemAdapter()
         }.root
         return binding
+
     }
 
 

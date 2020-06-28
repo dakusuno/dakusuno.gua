@@ -4,4 +4,5 @@ import androidx.databinding.ObservableBoolean
 
 interface Repository {
     var isLoading: ObservableBoolean
+    var isEmpty : ObservableBoolean
 }

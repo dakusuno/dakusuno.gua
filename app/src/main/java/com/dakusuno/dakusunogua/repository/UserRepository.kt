@@ -3,7 +3,9 @@ package com.dakusuno.dakusunogua.repository
 import android.util.Log
 import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.MutableLiveData
+import com.dakusuno.dakusunogua.model.Item
 import com.dakusuno.dakusunogua.model.User
+import com.dakusuno.dakusunogua.network.ItemService
 import com.dakusuno.dakusunogua.network.UserService
 import com.skydoves.sandwich.*
 import com.skydoves.whatif.whatIfNotNull
@@ -11,8 +13,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import timber.log.Timber
 
-class UserRepository constructor(private val userService: UserService):Repository{
+class UserRepository constructor(private val userService: UserService,private val itemService: ItemService):Repository{
     override var isLoading:ObservableBoolean = ObservableBoolean(false)
+    override var isEmpty:ObservableBoolean = ObservableBoolean(false)
+
     init {
         Timber.d("Injection UserRepository")
     }
@@ -23,8 +27,18 @@ class UserRepository constructor(private val userService: UserService):Repositor
         userService.fetchUser(username).request {
             it.onSuccess {
                 data.whatIfNotNull {
+                    if(it.company.isNullOrBlank()){
+                        it.company = "-"
+                    }
+                    if(it.location.isNullOrBlank()){
+                        it.location = "-"
+                    }
+                    if(it.name.isNullOrBlank()){
+                        it.name = "Anonymous"
+                    }
                     liveData.apply {
                         postValue(it)
+                        Timber.d(it.toString())
                     }
                 }
             }
@@ -37,6 +51,34 @@ class UserRepository constructor(private val userService: UserService):Repositor
             isLoading.set(false)
         }
         Timber.d(liveData.value.toString())
+        liveData
+    }
+    suspend fun fetchFollowers(username: String,error: (String) -> Unit)= withContext(Dispatchers.IO){
+        val liveData = MutableLiveData<List<Item>>()
+        itemService.fetchFollowers(username).request {
+            it.onSuccess {
+                data.whatIfNotNull {
+                    liveData.postValue(it)
+                    Timber.d(it.toString())
+                }
+            }
+                .onError { error(message()) }
+                .onException { error(message()) }
+        }
+        liveData
+    }
+    suspend fun fetchFollowing(username:String,error: (String) -> Unit) = withContext(Dispatchers.IO){
+        val liveData = MutableLiveData<List<Item>>()
+        itemService.fetchFollowing(username).request {
+            it.onSuccess {
+                data.whatIfNotNull {
+                    liveData.postValue(it)
+                }
+
+            }
+                .onError { error(message())  }
+                .onException { error(message()) }
+        }
         liveData
     }
 }

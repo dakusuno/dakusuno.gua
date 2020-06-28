@@ -13,6 +13,7 @@ import kotlinx.coroutines.launch
 class MainViewModel constructor(private val itemRepository: ItemRepository) : LiveCoroutinesViewModel(){
     private var searchItemFetchingLiveData: MutableLiveData<Boolean> = MutableLiveData()
     val isLoading:ObservableBoolean = itemRepository.isLoading
+    val isEmpty:ObservableBoolean = itemRepository.isEmpty
     val toastLiveData:MutableLiveData<String> = MutableLiveData()
     val username:MutableLiveData<String> = MutableLiveData()
     var searchListLiveData:LiveData<ItemList> =
@@ -23,6 +24,7 @@ class MainViewModel constructor(private val itemRepository: ItemRepository) : Li
                 toastLiveData.postValue(it)
             }
         }
+
     fun fetchSearch(username:String){
         searchListLiveData =
         launchOnViewModelScope {

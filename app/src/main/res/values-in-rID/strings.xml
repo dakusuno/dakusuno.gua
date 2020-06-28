@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">dakusuno gua</string>
+    <string name="search">Cari Username</string>
+    <string name="followers">Pengikut</string>
+    <string name="following">Mengikuti</string>
+    <string name="company">Perusahaan</string>
+    <string name="location">Lokasi</string>
+    <string name="repositories">Repositori</string>
+    <string name="usrnotfound">Username Tidak Ditemukan</string>
+</resources>
