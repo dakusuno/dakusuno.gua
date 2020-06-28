@@ -1,15 +1,9 @@
 package com.dakusuno.dakusunogua.view.ui.user
 
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.lifecycle.Observer
-import com.dakusuno.dakusunogua.MainActivity
 import com.dakusuno.dakusunogua.R
 import com.dakusuno.dakusunogua.base.BaseFragment
-import com.dakusuno.dakusunogua.base.DatabindingFragment
 import com.dakusuno.dakusunogua.databinding.FragmentUserBinding
 import com.dakusuno.dakusunogua.model.Item
 import com.dakusuno.dakusunogua.view.adapter.UserPagerAdapter
@@ -17,7 +11,6 @@ import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_user.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
-import timber.log.Timber
 
 
 class UserFragment : BaseFragment(){
