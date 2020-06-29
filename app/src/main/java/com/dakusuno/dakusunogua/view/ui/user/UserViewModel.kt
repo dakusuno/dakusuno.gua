@@ -8,13 +8,15 @@ import androidx.lifecycle.switchMap
 import com.dakusuno.dakusunogua.base.LiveCoroutinesViewModel
 import com.dakusuno.dakusunogua.model.Item
 import com.dakusuno.dakusunogua.model.User
+import com.dakusuno.dakusunogua.repository.FavouriteRepository
 import com.dakusuno.dakusunogua.repository.UserRepository
+import com.skydoves.whatif.whatIfNotNull
 import timber.log.Timber
 
-class UserViewModel constructor(private val userRepository:UserRepository):LiveCoroutinesViewModel(){
+class UserViewModel constructor(private val userRepository:UserRepository,private val favouriteRepository: FavouriteRepository):LiveCoroutinesViewModel(){
     val userFetchingLiveData:MutableLiveData<String> = MutableLiveData()
-    val followerFetchingLiveData:MutableLiveData<String> = MutableLiveData()
     val isLoading: ObservableBoolean = userRepository.isLoading
+    var isFavourite: ObservableBoolean = userRepository.isFavourite
     val user:LiveData<User>
     val follower:LiveData<List<Item>>
     val following:LiveData<List<Item>>
@@ -43,11 +45,21 @@ class UserViewModel constructor(private val userRepository:UserRepository):LiveC
             }
         }
         Timber.d(follower.value.toString())
-
     }
 
     fun getUser(username:String){
         userFetchingLiveData.value = username
     }
-
+    fun favUser(){
+        user.value.whatIfNotNull {
+            favouriteRepository.setFavourite(it)
+            isFavourite.set(true)
+        }
+    }
+    fun notFavUser(){
+        user.value.whatIfNotNull {
+            favouriteRepository.deleteFavourite(it)
+            isFavourite.set(false)
+        }
+    }
 }

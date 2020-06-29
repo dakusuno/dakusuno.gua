@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SQLAndroidSettings">
+    <option name="databases">
+      <map>
+        <entry key="dakusunogua.db_/home/dakusuno/AndroidStudioProjects/dakusunogua/AndroidSqlEditorDatabases/">
+          <value>
+            <list>
+              <option value="192.168.1.3:5555" />
+              <option value="/databases/Dakusunonote.db" />
+              <option value="dakusunogua.db" />
+              <option value="dakusunogua.db" />
+              <option value="false" />
+              <option value="com.dakusuno.dakusunogua" />
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="storageVersion" value="2" />
+  </component>
+</project>
