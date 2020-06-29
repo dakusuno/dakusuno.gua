@@ -1,6 +1,12 @@
 package com.dakusuno.dakusunogua.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+
+@Entity
 data class User (
+                @PrimaryKey
                 var login:String,
                 var avatar_url:String,
                 var name:String,

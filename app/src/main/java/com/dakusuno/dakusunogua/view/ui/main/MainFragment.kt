@@ -13,7 +13,6 @@ class MainFragment : BaseFragment(){
     override fun layoutId(): Int {
         return R.layout.fragment_main
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         FragmentMainBinding.bind(view).apply {
