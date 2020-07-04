@@ -6,11 +6,9 @@ import androidx.navigation.findNavController
 import com.dakusuno.dakusunogua.R
 import com.dakusuno.dakusunogua.databinding.ItemUserBinding
 import com.dakusuno.dakusunogua.model.Item
-import com.dakusuno.dakusunogua.view.ui.main.MainFragmentDirections
 import com.skydoves.baserecyclerviewadapter.BaseViewHolder
 
 class ItemViewHolder(view: View):BaseViewHolder(view){
-
 
     private lateinit var data: Item
     private val binding: ItemUserBinding by bindings(

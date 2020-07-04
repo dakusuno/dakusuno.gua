@@ -8,4 +8,9 @@
     <string name="location">Lokasi</string>
     <string name="repositories">Repositori</string>
     <string name="usrnotfound">Username Tidak Ditemukan</string>
+    <string name="setting">Pengaturan</string>
+    <string name="favourite">Favorit</string>
+    <string name="reminder">Pengingat</string>
+    <string name="delete">Hapus</string>
+
 </resources>

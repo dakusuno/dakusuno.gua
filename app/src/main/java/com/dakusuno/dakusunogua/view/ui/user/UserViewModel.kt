@@ -18,6 +18,11 @@ class UserViewModel constructor(private val userRepository:UserRepository,privat
     val isLoading: ObservableBoolean = userRepository.isLoading
     var isFavourite: ObservableBoolean = userRepository.isFavourite
     val user:LiveData<User>
+    var favUser: MutableLiveData<List<User>> = MutableLiveData(favouriteRepository.getUser())
+    fun deleteUser(user: User){
+        favouriteRepository.deleteFavourite(user)
+        this.favUser.postValue(favouriteRepository.getUser())
+    }
     val follower:LiveData<List<Item>>
     val following:LiveData<List<Item>>
     init {
@@ -25,8 +30,6 @@ class UserViewModel constructor(private val userRepository:UserRepository,privat
         user = userFetchingLiveData.switchMap {
             launchOnViewModelScope {
                 this.userRepository.fetchUser(it){
-                    Log.d("result", it)
-
                 }
             }
         }
@@ -54,12 +57,14 @@ class UserViewModel constructor(private val userRepository:UserRepository,privat
         user.value.whatIfNotNull {
             favouriteRepository.setFavourite(it)
             isFavourite.set(true)
+            favUser = MutableLiveData(favouriteRepository.getUser())
         }
     }
     fun notFavUser(){
         user.value.whatIfNotNull {
             favouriteRepository.deleteFavourite(it)
             isFavourite.set(false)
+            deleteUser(it)
         }
     }
 }

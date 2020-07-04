@@ -14,6 +14,7 @@ import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 
 class UserFragment : BaseFragment(){
+
     override fun layoutId(): Int {
         return R.layout.fragment_user
     }

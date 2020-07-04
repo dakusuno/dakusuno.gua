@@ -17,10 +17,16 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(this,R.id.nav_host_fragment)
         val appBarConfiguration = AppBarConfiguration(navController.graph)
         toolbar.setupWithNavController(navController,appBarConfiguration)
+
         toolbar.setOnMenuItemClickListener {
             when(it.itemId){
                 R.id.action_change_settings -> {
-                    startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
+                    navController.navigate(R.id.settingFragment)
+
+                    true
+                }
+                R.id.action_favourite -> {
+                    navController.navigate(R.id.favouriteFragment)
                     true
                 }
                 else -> false

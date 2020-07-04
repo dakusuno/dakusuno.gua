@@ -6,6 +6,8 @@ import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.dakusuno.dakusunogua.model.Item
 import com.dakusuno.dakusunogua.model.ItemList
+import com.dakusuno.dakusunogua.model.User
+import com.dakusuno.dakusunogua.view.adapter.FavouriteAdapter
 import com.dakusuno.dakusunogua.view.adapter.FollowerAdapter
 import com.dakusuno.dakusunogua.view.adapter.FollowingAdapter
 import com.dakusuno.dakusunogua.view.adapter.ItemAdapter
@@ -38,5 +40,11 @@ fun bindAdapterFollowerList(view: RecyclerView, item: List<Item>?) {
 fun bindAdapterFollowingList(view: RecyclerView, item: List<Item>?) {
     item.whatIfNotNull {
         (view.adapter as? FollowingAdapter)?.addItemList(it)
+    }
+}
+@BindingAdapter("adapterFavouriteList")
+fun bindAdapterFavouriteList(view: RecyclerView, item: List<User>?) {
+    item.whatIfNotNull {
+        (view.adapter as? FavouriteAdapter)?.addItemList(it)
     }
 }

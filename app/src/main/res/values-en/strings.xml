@@ -8,4 +8,9 @@
     <string name="location">Location</string>
     <string name="repositories">Repository</string>
     <string name="usrnotfound">Username Not Found</string>
+    <string name="setting">Setting</string>
+    <string name="favourite">Favourite</string>
+    <string name="reminder">Reminder</string>
+    <string name="delete">Delete</string>
+
 </resources>

@@ -18,9 +18,6 @@
             app:exitAnim="@anim/fragment_open_exit"
             app:popEnterAnim="@anim/fragment_close_enter"
             app:popExitAnim="@anim/fragment_close_exit">
-            <argument
-                android:name="item"
-                app:argType="com.dakusuno.dakusunogua.model.Item" />
         </action>
 
     </fragment>
@@ -38,5 +35,25 @@
             app:destination="@id/userFragment"
             />
     </fragment>
+    <fragment
+        android:id="@+id/favouriteFragment"
+        android:name="com.dakusuno.dakusunogua.view.ui.favourite.FavouriteFragment"
+        android:label="FavouriteFragment"
+        tools:layout="@layout/fragment_favourite"
+        >
+        <action
+            android:id="@+id/action_favouriteFragment_to_userFragment"
+            app:destination="@id/userFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_close_enter"
+            app:popExitAnim="@anim/fragment_close_exit"/>
+    </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.dakusuno.dakusunogua.view.ui.setting.SettingFragment"
+        android:label="SettingFragment"
+        tools:layout="@layout/fragment_setting"
+        />
 
 </navigation>

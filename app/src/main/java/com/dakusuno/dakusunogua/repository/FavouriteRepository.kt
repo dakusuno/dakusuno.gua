@@ -1,6 +1,7 @@
 package com.dakusuno.dakusunogua.repository
 
 import androidx.databinding.ObservableBoolean
+import androidx.lifecycle.LiveData
 import com.dakusuno.dakusunogua.model.User
 import com.dakusuno.dakusunogua.persistence.UserDao
 
@@ -14,4 +15,5 @@ class FavouriteRepository constructor(private val userDao: UserDao) : Repository
     fun deleteFavourite(user:User){
         userDao.deleteUser(user.login)
     }
+    fun getUser() = userDao.getUserList()
 }
