@@ -12,5 +12,9 @@
     <string name="favourite">Favorit</string>
     <string name="reminder">Pengingat</string>
     <string name="delete">Hapus</string>
-
+    <string name="language">Bahasa</string>
+    <string name="active">Aktif</string>
+    <string name="nonactive">Nonaktif</string>
+    <string name="notif">Buka Aplikasi Sekarang</string>
+    <string name="unknown">Tidak Ada Data</string>
 </resources>

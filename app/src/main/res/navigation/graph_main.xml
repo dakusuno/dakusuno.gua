@@ -38,7 +38,7 @@
     <fragment
         android:id="@+id/favouriteFragment"
         android:name="com.dakusuno.dakusunogua.view.ui.favourite.FavouriteFragment"
-        android:label="FavouriteFragment"
+        android:label="@string/favourite"
         tools:layout="@layout/fragment_favourite"
         >
         <action
@@ -52,7 +52,7 @@
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.dakusuno.dakusunogua.view.ui.setting.SettingFragment"
-        android:label="SettingFragment"
+        android:label="@string/setting"
         tools:layout="@layout/fragment_setting"
         />
 

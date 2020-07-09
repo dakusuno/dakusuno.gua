@@ -12,5 +12,10 @@
     <string name="favourite">Favourite</string>
     <string name="reminder">Reminder</string>
     <string name="delete">Delete</string>
+    <string name="language">Language</string>
+    <string name="active">Active</string>
+    <string name="nonactive">Non Active</string>
+    <string name="notif">Open Your Apps</string>
+    <string name="unknown">No Data</string>
 
 </resources>

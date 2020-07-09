@@ -1,5 +1,6 @@
 package com.dakusuno.dakusunogua.persistence
 
+import android.database.Cursor
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -13,6 +14,9 @@ interface UserDao{
 
     @Query("SELECT * FROM User")
     fun getUserList(): List<User>
+
+    @Query("SELECT * FROM User")
+    fun selectAll(): Cursor
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertUser(user:User)

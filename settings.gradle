@@ -1,2 +1,3 @@
+include ':favoritgua'
 include ':app'
 rootProject.name = "dakusuno gua"

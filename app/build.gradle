@@ -103,4 +103,6 @@ dependencies {
     implementation "com.jakewharton.timber:timber:4.7.1"
 
     implementation 'com.cioccarellia:ksprefs:2.0.0'
+
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }
